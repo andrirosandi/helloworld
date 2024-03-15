@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('environments', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('domain');
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

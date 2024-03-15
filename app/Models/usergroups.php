@@ -9,6 +9,7 @@ class Usergroups extends Model
 {
     use HasFactory;
     protected $table = 'usergroups';
+    protected $incrementing = false;
     protected $fillable = [
         'id',
         'description',

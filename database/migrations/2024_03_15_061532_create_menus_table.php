@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
+            $table->string('environment_id');
+            $table->string('caption');
+            $table->boolean('haschild')->default(false);
+            $table->string('parent')->nullable();
+            $table->string('action');
+            $table->boolean('blocked')->default(false);
             $table->timestamps();
         });
     }

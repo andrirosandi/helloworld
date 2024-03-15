@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Actionpermission extends Model
 {
     use HasFactory;
+    protected $table = 'Actionpermission';
+    protected $fillable = [
+        'action_id',
+        'usergroup_id',
+        'allowed',
+    ];
 }

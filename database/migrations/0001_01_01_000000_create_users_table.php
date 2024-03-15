@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('usergroup_id');
-            $table->integer('blocked')->default(0);
-            $table->integer('systemadmin')->default(0); // 1/0
+            $table->boolean('blocked')->default(false);
+            $table->boolean('systemadmin')->default(false); // 1/0
             $table->rememberToken();
             $table->timestamps();
         });

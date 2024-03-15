@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Action extends Model
 {
     use HasFactory;
+    protected $table = 'action';
+    protected $incrementing = false;
+    protected $fillable = [
+        'id',
+        'description',
+        'allowed_default',
+    ];
 }

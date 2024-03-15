@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('usergroups', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->text('description')->nullable();
-            $table->integer('blocked')->default(0);
+            $table->boolean('blocked')->default(false);
             $table->timestamps();
         });
     }

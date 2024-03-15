@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('useractivities', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('user_id');
+            $table->string('activity');
+            $table->text('input')->nullable();
+            $table->string('responsestatus')->nullable();
+            $table->text('responsereturn')->nullable();
             $table->timestamps();
         });
     }

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Environment extends Model
 {
     use HasFactory;
+    protected $table = 'environments';
+    protected $incrementing = false;
+    protected $fillable = [
+        'id',
+        'name',
+        'description',
+        'domain',
+        'path',
+    ];
 }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('menupermissions', function (Blueprint $table) {
             $table->id();
+            $table->string('menu_id');
+            $table->string('usergroup_id');
+            $table->boolean('allowed')->default(true);
             $table->timestamps();
         });
     }
