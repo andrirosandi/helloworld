@@ -1,0 +1,224 @@
+## USERGROUP
+# table: usergroup
+get: /usergroup
+get: /usergroup/:id
+post: /usergroup
+put: /usergroup/:id
+delete: /usergroup/:id
+
+## USER
+# table: user
+# dependon: usergroup
+get: /user
+get: /user/:id
+post: /user
+put: /user/:id
+delete: /user/:id
+
+## PASSWORD
+# dependon: user
+put: /user/password
+put: /user/password/:id
+
+## AUTH
+# dependon: user, usergroup
+post: /auth/login
+get: /auth/logout
+post: /auth/token
+
+## SETTING
+# table: setting
+get: /setting
+get: /setting/:id
+post: /setting
+put: /setting/:id
+delete: /setting/:id
+
+## ENVIRONTMENT
+# table: environtment
+# disetting ketika installasi
+# example: public dan admin
+# public > panel yang tidak memerlukan akses login
+# admin > panel untuk mengelola website
+get: /environtment
+get: /environtment/:id
+post: /environtment
+put: /environtment/:id
+delete: /environtment/:id
+
+## USERACTIVITY
+# table: useractivity
+# dependon: user
+get: /useractivity
+get: /useractivity/:id
+post: /useractivity
+put: /useractivity/:id
+delete: /useractivity/:id
+
+## MENU
+# table: menu
+# dependon: environtment
+get: /menu
+get: /menu/:id
+post: /menu
+put: /menu/:id
+delete: /menu/:id
+
+## MENUPERMISSION
+# table: menupermission
+# dependon: menu, usergroup
+get: /menupermission
+get: /menupermission/:id
+post: /menupermission
+put: /menupermission/:id
+delete: /menupermission/:id
+
+## ACTION
+# action / endpoint
+# table: action
+get: /action
+get: /action/:id
+post: /action
+put: /action/:id
+delete: /action/:id
+
+## ACTIONPERMISSION
+# table: actionpermission
+# dependon: action, usergroup
+# permission untuk data action / endpoint
+get: /actionpermission
+get: /actionpermission/:id
+post: /actionpermission
+put: /actionpermission/:id
+delete: /actionpermission/:id
+
+## CATEGORY
+# table: category
+get: /category
+get: /category/:id
+post: /category
+put: /category/:id
+delete: /category/:id
+
+## TAG
+#table: tag
+get: /tag
+get: /tag/:id
+post: /tag
+delete: /tag/:id
+
+## MEDIA
+#table: media
+# media|file dikoneksikan ke beberapa module/table
+get: /media
+get: /media/:id
+post: /media
+put: /media/:id
+delete: /media/:id
+
+## POST
+#table: post
+get: /post
+get: /post/:id
+post: /post
+put: /post/:id
+delete: /post/:id
+
+## POSTPART
+#table: postpart
+get: /postpart
+get: /postpart/:id
+post: /postpart
+put: /postpart/:id
+delete: /postpart/:id
+
+## PAGE
+#table: page
+# merupakan module untuk halaman statis | dinamic tergantung kondisi
+# dapat dikoneksikan untuk form, post, galery dan yang lainnya
+get: /page
+get: /page/:id
+post: /page
+put: /page/:id
+delete: /page/:id
+
+## FORM
+#table: form
+get: /form
+get: /form/:id
+post: /form
+put: /form/:id
+delete: /form/:id
+
+## FORMFIELD
+#table: formfield
+get: /formfield
+get: /formfield/:id
+post: /formfield
+put: /formfield/:id
+delete: /formfield/:id
+
+## FILLEDFORM
+#table: filledform
+get: /filledform
+get: /filledform/:id
+post: /filledform
+put: /filledform/:id
+delete: /filledform/:id
+
+## TAGLINK
+#table: taglink
+get: /taglink
+get: /taglink/:id
+post: /taglink
+put: /taglink/:id
+delete: /taglink/:id
+
+## MEDIALINK
+#table: medialink
+# untuk mengkoneksikan media dengan module yang lainnya
+# misal dikoneksikan ke module post dengan ref_id tertentu
+get: /medialink
+get: /medialink/:id
+post: /medialink
+put: /medialink/:id
+delete: /medialink/:id
+
+## COMMENT
+#table: comment
+get: /comment
+get: /comment/:id
+post: /comment
+put: /comment/:id
+delete: /comment/:id
+
+## RESPONSE
+#table: response
+get: /response
+get: /response/:id
+post: /response
+put: /response/:id
+delete: /response/:id
+
+## CONTACT
+#table: contact
+get: /contact
+post: /contact
+
+## CHAT
+#table: chat
+get: /chat
+get: /chat/:id
+post: /chat
+put: /chat/:id
+delete: /chat/:id
+
+## NOTIFICATION
+#table: notification
+get: /notification
+get: /notification/:id
+post: /notification
+put: /notification/:id
+delete: /notification/:id
+
+

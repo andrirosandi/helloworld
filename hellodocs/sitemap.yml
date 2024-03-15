@@ -1,0 +1,61 @@
+
+## Main Menu
+- Dashboard
+- Posts
+  - New
+  - View
+  - Drafts
+  - Reported
+  - Blocked
+- Pages
+  - New
+  - View
+  - Drafts
+  - Reported
+  - Blocked
+- Form
+  - New
+  - View
+  - Drafts
+  - Reported
+  - Blocked
+- Categories
+  - New
+  - View
+- Tags
+  - New
+  - View
+- Comments
+  - View
+  - Reported
+  - Blocked
+- Media
+  - New
+  - View
+  - Reported
+  - Blocked
+- Settings
+  - Users
+  - User Groups
+  - Menu And Permission
+  - Action Permission
+  - Basic Settings
+  - Environment
+- Analytics And Reports
+  - Traffic Overview # skip for now
+  - Audience Insights # skip for now
+  - Post Performance # skip for now
+  - User Activity
+- Support
+  - Documentation # skip for now
+  - Faqs # skip for now
+  - Contact Support
+  - Messages
+
+
+## Widget
+- Profile
+  - View Profile
+  - Logout
+- Notifications
+- Chats

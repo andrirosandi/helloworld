@@ -1,0 +1,200 @@
+- usergroup
+  - id [str] [pk]
+  - description [text]
+  - blocked [bool]
+  
+- user
+  - id [str] [pk]
+  - firstname [str]
+  - lastname [str]
+  - email [str] [unique]
+  - password [str] [encrypted]
+  - email_verified_at [datetime]
+  - groupid [fk:usergroup.id]
+  - blocked [bool]
+
+- setting
+  - id [str] [pk]
+  - description [text]
+  - value [text] # dapat berupa json
+
+- environment 
+# disetting ketika installasi
+# ini merupakan table untuk environtment dengan contoh: public dan admin
+# public bisa diartikan untuk guest yang tidak memerlukan akses login
+# admin merupakan admin panel untuk melakukan penyesuaian pada website seperti post,page,themes dan lainnya
+  - id [str] [pk]
+  - name [str] [public|adminpanel]
+  - description [text]
+  - domain [str] # example: domain.com | admin.domain.com
+  - path [str] # example: domain.com/admin
+
+- useractivity
+  - id [pk] [uuid]
+  - user_id [fk:user.id]
+  - activity [str]
+  - input [text] [json]
+  - responsestatus [str]
+  - responsereturn [text] [json]
+  - creation_date [datetime]
+
+- menu
+  - id [str] [pk]
+  - environment_id [fk:environment.id] # agar bisa tau di environment mana menu ini tampil
+  - caption [str]
+  - haschild [bool] # apakah menu ini memiliki child/anak
+  - parent [menu.id|null] # siapa parent dari menu ini
+  - action [str]
+  - blocked [bool]
+
+- menupermission
+  - id [int] [pk]
+  - menu_id [fk:menu.id]
+  - usergroup_id [fk:usergroup.id]
+  - allowed [bool]
+
+- action
+  - id [pk] [str] # example: post.create
+  - description [text] # example: creating post
+  - allowed_default [bool] # example: false
+
+- actionpermission
+  - id [pk] [int] 
+  - action_id [fk:action.id] # example: post.delete
+  - usergroup_id [fk:usergroup.id] # example: user
+  - allowed [bool] # example: false
+
+
+- category
+  - id [str] [pk]
+  - description [str]
+
+- tag
+  - id [str] [pk]
+
+- media
+  - id [pk] [uuid]
+  - originalname [str]
+  - type [str]
+  - filesize [int]
+  - public [str]
+  - blocked [bool]
+  - uploader [fk:user.id]
+
+- post
+  - id [pk] [uuid]
+  - slug [str] [unique] # otomatis dibentuk berdasarkan title
+  - author [fk:user.id]
+  - creation_date [datetime]
+  - title [str]
+  - status [str] # publish,draft
+  - blocked [bool]
+
+- postpart
+  - id [pk] [uuid]
+  - sequence [int]
+  - content [text]
+
+- page
+  - id [pk] [uuid]
+  - slug [str] [unique] # otomatis terbentuk berdasarkan title
+  - title [str]
+  - author [str]
+  - blocked [bool]
+  - creation_date [datetime]
+  - content [text]
+  - status [str] # draft,publish
+
+- form
+  - id [pk] [uuid]
+  - status [str] # publish,draft
+  - blocked [bool]
+  - author [str]
+  - title [str]
+  - creation_date [datetime]
+  - datelimit [date]
+
+- formfield
+  - id [uuid] [pk]
+  - form_id [fk:form.id]
+  - system [bool] # kalau true maka value mengambil dari variable system: date,time,datetime,environment,user
+  - sequence [int]
+  - caption [str]
+  - default_value [text]
+  - type [str] # string,integer,boolean,text,media,enum
+  - required [bool]
+
+- filledform
+  - id [pk] [uuid]
+  - form_id [fk:form.id]
+  - user [fk.user.id|guest]
+  - content [text] # json yang berisi nama field dan value-nya
+
+- taglink
+  - id [pk] [int]
+  - module [str]
+  - ref_id [str]
+  - tag_id [fk:tag.id]
+
+- medialink
+  - id [pk] [int]
+  - module [str]
+  - ref_id [str]
+  - media_id [fk:media.id]
+
+- comment
+  - id [str] [uuid]
+  - module [str] [tablename] # digunakan untuk mengkoneksikan ke module lain
+  - ref_id [str] [module.id] # merupakan id pada module lain
+  - commenton [str] [comment.id] # ini digunakan untuk melakukan komentar ke sebuah komentar lain
+  - comment [text]
+  - user_id [fk:user.id]
+  - blocked [bool]
+  - creation_date [datetime]
+
+- response
+  - id [str] [uuid]
+  - response [str] # like|dislike
+  - module [str] # module | tablename agar dapat dikoneksikan ke module lainnya seperti post, page, dll
+  - ref_id [tablename.id]
+  - creation_date [datetime]
+  - user_id [fk:user.id]
+
+- responsesummary
+  - id [pk]
+  - response [str] # like|dislike
+  - module [str] # tablename
+  - ref_id [tablename.id]
+  - creation_date [datetime]
+  - total [fk:user.id]
+
+- contact
+  - id [uuid] [pk]
+  - field [str]
+  - value [str]
+
+
+- chat
+  - id [pk] [uuid]
+  - sender_id [fk:user.id]
+  - receiver_id [fk:user.id]
+  - message [text]
+  - timestamp [datetime]
+  - read [bool]
+
+- notification
+  - id [pk] [uuid]
+  - user_id [fk:user.id]
+  - module [str]
+  - ref_id [str]
+  - message [text]
+  - timestamp [datetime]
+  - read [bool]
+
+- postperformance
+  - id [pk] [uuid]
+  - post_id [fk:post.id]
+  - views [int]
+  - response [int]
+  - comments [int]
+  - shares [int]
