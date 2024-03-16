@@ -91,6 +91,14 @@ return new class extends Migration
         Schema::table('chats', function (Blueprint $table) {
             $table->foreign('receiver_id')->references('id')->on('users')->onDelete('no action');
         });
+        // 
+        Schema::table('notifications', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+        // 
+        Schema::table('postperformances', function (Blueprint $table) {
+            $table->foreign('post_id')->references('id')->on('posts');
+        });
     }
 
     /**
@@ -177,6 +185,14 @@ return new class extends Migration
         //
         Schema::table('chats', function (Blueprint $table) {
             $table->dropForeign(['receiver_id']);
+        });
+        //
+        Schema::table('notifications', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        //
+        Schema::table('postperformances', function (Blueprint $table) {
+            $table->dropForeign(['post_id']);
         });
     }
 };

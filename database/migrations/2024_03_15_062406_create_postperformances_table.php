@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('postperformances', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('post_id');
+            $table->integer('views');
+            $table->integer('response');
+            $table->integer('comments');
+            $table->integer('shares');
             $table->timestamps();
         });
     }
