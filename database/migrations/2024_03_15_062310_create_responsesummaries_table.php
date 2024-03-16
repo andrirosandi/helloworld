@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('responsesummaries', function (Blueprint $table) {
             $table->id();
+            $table->string('response');
+            $table->string('module');
+            $table->string('ref_id');
+            $table->integer('total');
             $table->timestamps();
         });
     }

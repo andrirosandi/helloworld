@@ -183,6 +183,7 @@
   - receiver_id [fk:user.id]
   - message [text]
   - timestamp [datetime]
+  - readat [datetime]
   - read [bool]
 
 - notification

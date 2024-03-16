@@ -67,6 +67,30 @@ return new class extends Migration
         Schema::table('filledforms', function (Blueprint $table) {
             $table->foreign('form_id')->references('id')->on('forms');
         });
+        // 
+        Schema::table('filledforms', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
+        });
+        // 
+        Schema::table('medialinks', function (Blueprint $table) {
+            $table->foreign('media_id')->references('id')->on('media');
+        });
+        // 
+        Schema::table('comments', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
+        });
+        // 
+        Schema::table('responses', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
+        });
+        // 
+        Schema::table('chats', function (Blueprint $table) {
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('no action');
+        });
+        // 
+        Schema::table('chats', function (Blueprint $table) {
+            $table->foreign('receiver_id')->references('id')->on('users')->onDelete('no action');
+        });
     }
 
     /**
@@ -129,6 +153,30 @@ return new class extends Migration
         //
         Schema::table('filledforms', function (Blueprint $table) {
             $table->dropForeign(['form_id']);
+        });
+        //
+        Schema::table('filledforms', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        //
+        Schema::table('medialinks', function (Blueprint $table) {
+            $table->dropForeign(['media_id']);
+        });
+        //
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        //
+        Schema::table('responses', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropForeign(['sender_id']);
+        });
+        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropForeign(['receiver_id']);
         });
     }
 };

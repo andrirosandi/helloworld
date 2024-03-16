@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Medialink extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'module',
+        'ref_id',
+        'media_id',
+    ];
 }

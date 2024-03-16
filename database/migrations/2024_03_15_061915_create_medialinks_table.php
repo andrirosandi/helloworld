@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('medialinks', function (Blueprint $table) {
             $table->id();
+            $table->string('module');
+            $table->string('ref_id');
+            $table->string('media_id');
             $table->timestamps();
         });
     }
