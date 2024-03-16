@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Media extends Model
+class Filledform extends Model
 {
     use HasFactory, HasUuids;
-    // protected $table = 'media';
+    // protected $table = 'filledforms';
     protected $fillable = [
-        'originalname',
-        'type',
-        'filesize',
-        'public',
-        'blocked',
-        'uploader',
+        'form_id',
+        'user',
+        'content',
     ];
 }

@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('filledforms', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('form_id');
+            $table->string('user_id')->nullable();
+            $table->text('content');
             $table->timestamps();
         });
     }

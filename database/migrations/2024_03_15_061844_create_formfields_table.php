@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('formfields', function (Blueprint $table) {
             $table->id();
+            $table->string('form_id');
+            $table->boolean('system')->default(false);
+            $table->integer('sequence')->default(0);
+            $table->string('caption');
+            $table->string('default_value')->nullable();
+            $table->string('type');
+            $table->boolean('required')->default(false);
             $table->timestamps();
         });
     }

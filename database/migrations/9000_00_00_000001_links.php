@@ -43,6 +43,30 @@ return new class extends Migration
         Schema::table('media', function (Blueprint $table) {
             $table->foreign('uploader')->references('id')->on('users');
         });
+        // 
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreign('author')->references('id')->on('users');
+        });
+        // 
+        Schema::table('postparts', function (Blueprint $table) {
+            $table->foreign('post_id')->references('id')->on('posts');
+        });
+        // 
+        Schema::table('pages', function (Blueprint $table) {
+            $table->foreign('author')->references('id')->on('users');
+        });
+        // 
+        Schema::table('forms', function (Blueprint $table) {
+            $table->foreign('author')->references('id')->on('users');
+        });
+        // 
+        Schema::table('formfields', function (Blueprint $table) {
+            $table->foreign('form_id')->references('id')->on('forms');
+        });
+        // 
+        Schema::table('filledforms', function (Blueprint $table) {
+            $table->foreign('form_id')->references('id')->on('forms');
+        });
     }
 
     /**
@@ -81,6 +105,30 @@ return new class extends Migration
         //
         Schema::table('media', function (Blueprint $table) {
             $table->dropForeign(['uploader']);
+        });
+        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['author']);
+        });
+        //
+        Schema::table('postparts', function (Blueprint $table) {
+            $table->dropForeign(['post_id']);
+        });
+        //
+        Schema::table('pages', function (Blueprint $table) {
+            $table->dropForeign(['author']);
+        });
+        //
+        Schema::table('forms', function (Blueprint $table) {
+            $table->dropForeign(['author']);
+        });
+        //
+        Schema::table('formfields', function (Blueprint $table) {
+            $table->dropForeign(['form_id']);
+        });
+        //
+        Schema::table('filledforms', function (Blueprint $table) {
+            $table->dropForeign(['form_id']);
         });
     }
 };

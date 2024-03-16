@@ -1,3 +1,4 @@
+
 - usergroup
   - id [str] [pk]
   - description [text]
@@ -93,6 +94,7 @@
 
 - postpart
   - id [pk] [uuid]
+  - post_id [str] [fk:post.id]
   - sequence [int]
   - content [text]
 

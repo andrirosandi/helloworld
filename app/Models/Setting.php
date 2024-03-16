@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Environment extends Model
+class Setting extends Model
 {
     use HasFactory;
-    // protected $table = 'environments';
+    // protected $table = 'settings';
     protected $incrementing = false;
     protected $fillable = [
         'id',
-        'name',
         'description',
-        'domain',
-        'path',
+        'value',
     ];
 }

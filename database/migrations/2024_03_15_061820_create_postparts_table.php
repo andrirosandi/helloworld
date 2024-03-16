@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('taglinks', function (Blueprint $table) {
-            $table->id();
-            $table->string('module');
-            $table->string('ref_id');
-            $table->string('tag_id');
+        Schema::create('postparts', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('post_id');
+            $table->integer('sequence')->default(0);
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('taglinks');
+        Schema::dropIfExists('postparts');
     }
 };

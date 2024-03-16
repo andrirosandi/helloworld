@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Media extends Model
+class Formfield extends Model
 {
     use HasFactory, HasUuids;
-    // protected $table = 'media';
+    // protected $table = 'formfields';
     protected $fillable = [
-        'originalname',
+        'form_id',
+        'system',
+        'sequence',
+        'caption',
+        'default_value',
         'type',
-        'filesize',
-        'public',
-        'blocked',
-        'uploader',
+        'required',
     ];
 }

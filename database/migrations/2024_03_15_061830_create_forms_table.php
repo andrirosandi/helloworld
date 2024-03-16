@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->boolean('publish')->default(false);
+            $table->boolean('blocked')->default(false);
+            $table->string('author');
+            $table->string('title');
+            $table->string('slug');
+            $table->dateTime('datelimit');
             $table->timestamps();
         });
     }

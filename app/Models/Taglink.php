@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usergroups extends Model
+class Taglink extends Model
 {
     use HasFactory;
-    protected $table = 'usergroups';
-    protected $incrementing = false;
+    // protected $table = 'taglinks';
     protected $fillable = [
-        'id',
-        'description',
-        'blocked',
+
+        'module',
+        'ref_id',
+        'tag_id',
     ];
-
-
 }

@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Media extends Model
+class Post extends Model
 {
     use HasFactory, HasUuids;
-    // protected $table = 'media';
+    // protected $table = 'posts';
     protected $fillable = [
-        'originalname',
-        'type',
-        'filesize',
-        'public',
+        'slug',
+        'author',
+        'title',
+        'status',
         'blocked',
-        'uploader',
     ];
 }
